@@ -1,6 +1,7 @@
 package com.study.marketbackend.models.product;
 
 import com.study.marketbackend.dtos.products.CreateProductDTO;
+import com.study.marketbackend.dtos.products.UpdateProductDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -31,5 +32,11 @@ public class Product {
         this.productCategory = createProductDTO.productCategory();
         this.productBrand = createProductDTO.productBrand();
         this.productSupplier = createProductDTO.productSupplier();
+    }
+
+    public void updateProductPrice(UpdateProductDTO updateProductDTO){
+        if (updateProductDTO.productPrice() != null)  {
+            this.productPrice = updateProductDTO.productPrice();
+        }
     }
 }
