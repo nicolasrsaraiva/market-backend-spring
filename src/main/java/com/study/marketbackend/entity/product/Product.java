@@ -1,7 +1,7 @@
-package com.study.marketbackend.models.product;
+package com.study.marketbackend.entity.product;
 
-import com.study.marketbackend.dtos.products.CreateProductDTO;
-import com.study.marketbackend.dtos.products.UpdateProductDTO;
+import com.study.marketbackend.service.dto.product.CreateProductDTO;
+import com.study.marketbackend.service.dto.product.UpdateProductDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

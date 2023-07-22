@@ -1,7 +1,7 @@
-package com.study.marketbackend.dtos.products;
+package com.study.marketbackend.service.dto.product;
 
-import com.study.marketbackend.models.product.Product;
-import com.study.marketbackend.models.product.ProductCategory;
+import com.study.marketbackend.entity.product.Product;
+import com.study.marketbackend.entity.product.ProductCategory;
 
 public record ReadProductDTO(Long productCode, String productName, Double productPrice, ProductCategory productCategory, String productBrand, String productSupplier) {
 

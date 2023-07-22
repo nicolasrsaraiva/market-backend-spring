@@ -1,4 +1,4 @@
-package com.study.marketbackend.models.product;
+package com.study.marketbackend.entity.product;
 
 public enum ProductCategory {
     BAKERY,

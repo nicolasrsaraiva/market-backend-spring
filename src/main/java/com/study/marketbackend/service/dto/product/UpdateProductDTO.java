@@ -1,4 +1,4 @@
-package com.study.marketbackend.dtos.products;
+package com.study.marketbackend.service.dto.product;
 
 import jakarta.validation.constraints.NotNull;
 

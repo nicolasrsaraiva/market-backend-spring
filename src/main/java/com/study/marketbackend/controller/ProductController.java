@@ -1,9 +1,9 @@
-package com.study.marketbackend.controllers;
+package com.study.marketbackend.controller;
 
-import com.study.marketbackend.dtos.products.CreateProductDTO;
-import com.study.marketbackend.dtos.products.ReadProductDTO;
-import com.study.marketbackend.dtos.products.UpdateProductDTO;
-import com.study.marketbackend.models.product.Product;
+import com.study.marketbackend.service.dto.product.CreateProductDTO;
+import com.study.marketbackend.service.dto.product.ReadProductDTO;
+import com.study.marketbackend.service.dto.product.UpdateProductDTO;
+import com.study.marketbackend.entity.product.Product;
 import com.study.marketbackend.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired

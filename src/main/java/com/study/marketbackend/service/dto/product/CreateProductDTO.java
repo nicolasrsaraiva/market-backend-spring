@@ -1,6 +1,6 @@
-package com.study.marketbackend.dtos.products;
+package com.study.marketbackend.service.dto.product;
 
-import com.study.marketbackend.models.product.ProductCategory;
+import com.study.marketbackend.entity.product.ProductCategory;
 import jakarta.validation.constraints.NotNull;
 
 public record CreateProductDTO(
