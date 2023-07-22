@@ -1,6 +1,7 @@
 package com.study.marketbackend.entity.user;
 
 import com.study.marketbackend.service.dto.user.CreateUserDTO;
+import com.study.marketbackend.service.dto.user.UpdateUserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -28,6 +29,13 @@ public class User {
         this.lastName = createUserDTO.lastName();
         this.email = createUserDTO.email();
         this.password = createUserDTO.password();
+    }
+
+    public void updateUser(UpdateUserDTO updateUserDTO){
+        if(updateUserDTO.firstName() != null) this.firstName = updateUserDTO.firstName();
+        if(updateUserDTO.lastName() != null) this.lastName = updateUserDTO.lastName();
+        if(updateUserDTO.email() != null) this.email = updateUserDTO.email();
+        if(updateUserDTO.password() != null) this.password = updateUserDTO.password();
     }
 }
 

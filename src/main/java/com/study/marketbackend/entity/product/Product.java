@@ -35,8 +35,6 @@ public class Product {
     }
 
     public void updateProductPrice(UpdateProductDTO updateProductDTO){
-        if (updateProductDTO.productPrice() != null)  {
-            this.productPrice = updateProductDTO.productPrice();
-        }
+        if (updateProductDTO.productPrice() != null)  this.productPrice = updateProductDTO.productPrice();
     }
 }

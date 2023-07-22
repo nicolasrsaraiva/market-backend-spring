@@ -4,6 +4,7 @@ import com.study.marketbackend.entity.user.User;
 import com.study.marketbackend.repository.UserRepository;
 import com.study.marketbackend.service.dto.user.CreateUserDTO;
 import com.study.marketbackend.service.dto.user.ReadUserDTO;
+import com.study.marketbackend.service.dto.user.UpdateUserDTO;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +31,10 @@ public class UserController {
         userRepository.save(new User(createUserDTO));
     }
 
+    @PutMapping
+    @Transactional
+    public void updateUser(@RequestBody @Valid UpdateUserDTO updateUserDTO){
+        var user = userRepository.getReferenceById(updateUserDTO.id());
+        user.updateUser(updateUserDTO);
+    }
 }
