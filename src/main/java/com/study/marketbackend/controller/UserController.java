@@ -8,6 +8,7 @@ import com.study.marketbackend.service.dto.user.UpdateUserDTO;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,26 +22,29 @@ public class UserController {
 
     @GetMapping
     @Transactional
-    public List<ReadUserDTO> readUsers(){
-        return userRepository.findAll().stream().map(ReadUserDTO::new).collect(Collectors.toList()); //change method (select password in query)
+    public ResponseEntity<List<ReadUserDTO>> readUsers(){
+        var response = userRepository.findAll().stream().map(ReadUserDTO::new).collect(Collectors.toList()); //change method (select password in query)
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
-    public ReadUserDTO readUser(@PathVariable Long id){
-        var user = userRepository.getReferenceById(id);
-        return new ReadUserDTO(user);
+    public ResponseEntity<ReadUserDTO> readUser(@PathVariable Long id){
+        var response = new ReadUserDTO(userRepository.getReferenceById(id));
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping
     @Transactional
-    public void createUser(@RequestBody @Valid CreateUserDTO createUserDTO){
+    public ResponseEntity<Void> createUser(@RequestBody @Valid CreateUserDTO createUserDTO){
         userRepository.save(new User(createUserDTO));
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping
     @Transactional
-    public void updateUser(@RequestBody @Valid UpdateUserDTO updateUserDTO){
+    public ResponseEntity<Void> updateUser(@RequestBody @Valid UpdateUserDTO updateUserDTO){
         var user = userRepository.getReferenceById(updateUserDTO.id());
         user.updateUser(updateUserDTO);
+        return ResponseEntity.ok().build();
     }
 }
