@@ -25,6 +25,12 @@ public class UserController {
         return userRepository.findAll().stream().map(ReadUserDTO::new).collect(Collectors.toList()); //change method (select password in query)
     }
 
+    @GetMapping("/{id}")
+    public ReadUserDTO readUser(@PathVariable Long id){
+        var user = userRepository.getReferenceById(id);
+        return new ReadUserDTO(user);
+    }
+
     @PostMapping
     @Transactional
     public void createUser(@RequestBody @Valid CreateUserDTO createUserDTO){
